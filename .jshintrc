@@ -1,0 +1,6 @@
+{
+    "esnext": true,
+    "ignoreDelimiters": [
+        { "start": "jshint-ignore", "end": "jshint-ignore-end" }
+    ]
+}

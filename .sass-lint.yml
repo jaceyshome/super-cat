@@ -1,0 +1,114 @@
+files:
+  include: 'src/components/**/*.scss'
+
+options:
+  formatter: stylish
+  merge-default-rules: false
+
+rules:
+
+  # Warn if BEM nesting goes more than 1 level deep (e.g. block__element__nested-element = 2)
+  bem-depth:
+    - 1
+    - max-depth: 1
+  # Use BEM naming
+  class-name-format:
+    - 1
+    - convention: hyphenatedbem
+  brace-style:
+    - 2
+    - style: 1tbs
+    - allow-single-line: false
+  # Require newline between blocks
+  empty-line-between-blocks:
+    - 2
+    - include: true
+    - ignore-single-line-rulesets: false
+  # @extends always come first
+  extends-before-declarations: 1
+  extends-before-mixins: 1
+  # Require newline at the end of files
+  final-newline:
+    - 2
+    - include: true
+  # use-hyphenated-function-names
+  function-name-format:
+    - 2
+    - allow-leading-underscore: true
+      convention: hyphenatedlowercase
+  # Must use hex colour shortcodes (if possible)
+  hex-length:
+    - 2
+    - style: short
+  # Hex codes must use lowercase characters
+  hex-notation:
+    - 2
+    - style: lowercase
+  # Indent with 4 spaces
+  indentation:
+    - 2
+    - size: 4
+  # use-hyphenated-mixin-names
+  mixin-name-format:
+    - 2
+    - allow-leading-underscore: true
+      convention: hyphenatedlowercase
+  # Allow CSS-style comments
+  no-css-comments: 0
+  # Allow empty rules
+  no-empty-rulesets: 0
+  # Make sure hex codes are valid
+  no-invalid-hex: 2
+  # Make sure properties are properly spelled
+  no-misspelled-properties:
+    - 2
+    - extra-properties: []
+  # Do not allow qualifying elements like div#my-el { ... } or a.external-link { ... }
+  no-qualifying-elements:
+    - 2
+    - allow-element-with-attribute: false
+      allow-element-with-class: false
+      allow-element-with-id: false
+  # Only one rule per line
+  one-declaration-per-line: 2
+  # Warn if properties out of order
+  property-sort-order:
+    - 1
+    - order: concentric # http://rhodesmill.org/brandon/2011/concentric-css/
+    - ignore-custom-properties: true
+  # Use "double" quotes
+  quotes:
+    - 2
+    - style: double
+  # Use shorthand properties where possible
+  shorthand-values: 2
+  # Force selectors on a separate line
+  single-line-per-selector: 2
+  # Require spaces after various tokens
+  space-after-colon:
+    - 2
+    - include: true
+  space-after-comma:
+    - 2
+    - include: true
+  space-around-operator:
+    - 2
+    - include: true
+  space-before-bang:
+    - 2
+    - include: true
+  space-before-brace:
+    - 2
+    - include: true
+  trailing-semicolon: 2
+  # URLs must be quoted
+  url-quotes: 2
+  # vars-must-use-hyphens
+  variable-name-format:
+    - 1
+    - allow-leading-underscore: true
+      convention: hyphenatedlowercase
+  # Zero (0) values must not have units
+  zero-unit:
+    - 2
+    - include: false

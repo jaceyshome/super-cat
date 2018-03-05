@@ -1,0 +1,32 @@
+{
+    "includes": ["\\.(js|es6)$"],
+    "excludes": ["^js-legacy", "^assets", "^styles", "^template-legacy","^vendor"],
+    "source": "./src",
+    "destination": "dist/jsdoc",
+    "plugins": [
+        {"name": "esdoc-standard-plugin", "option": {
+            "manual": {
+                "files": [
+                    "./README.md",
+                    "./doc/js-guide.md",
+                    "./doc/js-test.md",
+                    "./doc/log-guide.md",
+                    "./doc/todo.md",
+                    "./CHANGELOG.md"
+                ]
+            },
+            "lint": {"enable": false},
+            "coverage": {"enable": true},
+            "accessor": {"access": ["public", "protected", "private"], "autoPrivate": true},
+            "undocumentIdentifier": {"enable": true},
+            "unexportedIdentifier": {"enable": false},
+            "typeInference": {"enable": true},
+            "test": {
+                "source": "./src",
+                "includes": ["(spec)\\.js$"],
+                "excludes": ["\\.config\\.js$"]
+            }
+        }},
+        {"name": "esdoc-ecmascript-proposal-plugin", "option": {"all": true}}
+    ]
+}

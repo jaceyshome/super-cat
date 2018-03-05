@@ -1,0 +1,25 @@
+<!---------------------  jspm packages ------------------------>
+<script src="../jspm_packages/system.js"></script>
+<script src="../jspm_packages/system-polyfills.js"></script>
+<script src="../../vendor/moment.js"></script>
+
+
+<!-----------------------  SystemJs init -------------------------->
+<script>
+    // The paths configured for SystemJS assume you're in the root of the project, but we're not
+    System.config({baseURL: "../<!--#echo var="sitePath" -->"});
+</script>
+<script src="../<!--#echo var="sitePath" -->config.js"></script>
+
+<script>
+// Hack around the fact we already included jQuery up top
+System.set(System.normalizeSync('jquery'), System.newModule({
+    default: jQuery
+}));
+</script>
+<script>
+    // Import js files here
+    System.import('example').catch(function(e) {
+        console.error("SystemJs has error on loading main.js ", e);
+    });
+</script>

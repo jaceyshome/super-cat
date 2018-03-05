@@ -1,0 +1,47 @@
+<div class="b-component" >
+
+    <div class="grid">
+        <div class="2/3 grid__cell">
+            <p>{vm.proxy.description}</p>
+        </div>
+        <div class="1/3 grid__cell">
+            <a href="javascript:void(0);" class="btn btn-primary"
+               title="add a cat" onclick="{vm.handlers.addCat()}" >create</a>
+        </div>
+    </div>
+
+    <div class="b-component--tighter" each="cat in vm.proxy.cats">
+
+        <div class="grid">
+            <div class="1/2 grid__cell">
+                <a href="javascript:void(0);" class="b-link--block b-link--no-underline"
+                   onclick="{vm.handlers.clickCat(cat)}"
+                   title="show cat details" >
+                    <span>{cat.name} counts: {cat.counter}</span>
+                    <if condition="vm.proxy.selectedCat.name == cat.name">
+                        (Selected)
+                    </if>
+                </a>
+            </div>
+            <div class="1/4 grid__cell">
+                <a href="javascript:void(0);" class="btn btn-primary"
+                   title="edit cat" onclick="{vm.handlers.editCat(cat)}">edit</a>
+            </div>
+            <div class="1/4 grid__cell">
+                <a href="javascript:void(0);" class="btn btn-primary"
+                   title="delete cat" onclick="{vm.handlers.deleteCat(cat)}" >delete</a>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="b-js-cat-description-panel b-component" >
+
+        <p>I have a <b data-js-el="name">{vm.proxy.selectedCat.name}</b> and I have visited he/she <b data-js-el="counter">{vm.proxy.selectedCat.counter}</b> times. </p>
+
+        <a href="javascript:void(0);" class="b-button b-button--primary"
+           title="like cat" data-js-el="button-like">like</a>
+
+    </div>
+
+</div>

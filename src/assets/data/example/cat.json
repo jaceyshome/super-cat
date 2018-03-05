@@ -1,0 +1,27 @@
+[
+    {
+        "name": "lonely cat",
+        "src": "../../assets/img/cats/cat.jpg",
+        "counter": 0
+    },
+    {
+        "name": "cute cat",
+        "src": "../../assets/img/cats/cat2.jpg",
+        "counter": 1
+    },
+    {
+        "name": "lazy cat",
+        "src": "../../assets/img/cats/cat-vet.jpg",
+        "counter": 2
+    },
+    {
+        "name": "funny cat",
+        "src": "../../assets/img/cats/cat3.jpg",
+        "counter": 3
+    },
+    {
+        "name": "stone cat",
+        "src": "../../assets/img/cats/cat4.jpg",
+        "counter": 4
+    }
+]
