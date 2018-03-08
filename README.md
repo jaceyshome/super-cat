@@ -7,8 +7,6 @@ in the static web page.
 ## Requirements
 
 * [Node.js/NPM](http://nodejs.org/) (v6.9.5)
-* [Gulp](http://nodejs.org/) (v6.9.5)
-
 
 ## Overview
 The framework is written in ES6 and uses SystemJs for dependencies management, Gulp for pre-compiling ES6 script into ES5 script 
@@ -46,29 +44,19 @@ config github registry
 jspm registry config github
 ```
 
-### Connect to Bitbucket ###
-You'll also want to make sure you have SSH keys configured for your Bitbucket account so JSPM can access the private repositories it needs. You can find more details [instructions for doing this on the BitBucket website](https://confluence.atlassian.com/bitbucket/set-up-ssh-for-git-728138079.html). Or you can follow this video [BitBucket - Set up SSH key pair for Git](https://www.youtube.com/watch?v=-ElU6WhNLn4) to generate key-pair.
-
-Once you finish the above steps, you will need to ask the Bitbucket administrator or the project manager to add you in the University of Sydney bitbucket team and give you `read & write` access to this project and `read` access to Garfield ([https://bitbucket.org/sydneyuni/garfield](https://bitbucket.org/sydneyuni/garfield))
-
-After you can access the project you can install the project's dependencies inside the project directory:
-
 ```
 $ jspm config registries.bitbucket.baseurl ssh://git@bitbucket.org
 $ jspm config registries.bitbucket.handler jspm-git
 ```
 
 
-### Install node modules ###
-Now you can install dependencies
+### Install node modules and jspm packages ###
+Now you can install node modules and jspm packages
 
 ```
 $ npm install
 $ jspm install
 ```
-
-When it finishes, you should see the directory `node_modules` and directory `jspm_packages` under the root of the project directory.
-You should now be ready to start using the project.
 
 
 ## Component examples
