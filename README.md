@@ -1,6 +1,8 @@
 #Super cat
 
-This project explores the javascript observer pattern with ES6 features and Google [Incremental DOM](https://github.com/google/incremental-dom), written in ES6.
+This project explores ES6 future features including using proxy to observe and control components shared data and states
+and uses Google [Incremental DOM](https://github.com/google/incremental-dom) to handle dynamic view 
+in the static web page.
 
 ## Requirements
 
@@ -9,11 +11,11 @@ This project explores the javascript observer pattern with ES6 features and Goog
 
 
 ## Overview
-The framework is written in ES6 and uses SystemJs for dependencies management, Gulp for pre-compiling ES6 script into ES5 script, 
+The framework is written in ES6 and uses SystemJs for dependencies management, Gulp for pre-compiling ES6 script into ES5 script 
 and the html view templates into incremental dom view functions.
 
-The framework introduces a data service to handle communication between components and other modules. More information 
-about the component example and the data service is provided below.
+The framework introduces a data service with the observer pattern to handle communication between components and other modules. 
+More information about the component examples and the data service is provided below.
 
 
 ## Setup
@@ -128,16 +130,16 @@ controller 2 -> view model 2 -> view 1
 
 
 ## Data service ##
-The data service takes the responsibility to
-handle communication between components, state changes or sync data with other modules including server and local storage etc. 
-The flow is much clear and it is easy and effective to write test code for the complex logic in the data service as 
-it doesn't need to get DOM elements.
+The data service is developed based on the observer pattern. It takes the responsibility to handle communication 
+between components by the shared data, component state changes or synchronise data with other modules including the 
+server and the local data etc. The purpose is to make the data flow clear between each of components in a group.
 
 ![](./doc/assets/data-flow-with-data-service.png)
 
 
-Base: ```src/js/lib/data-service.js```
-Example: ```src/components/_cat-clicker/cat-service.js```
+Source: ```src/js/lib/data-service.js```
+
+An example: ```src/components/_cat-clicker/cat-service.js```
 
 
 
@@ -150,10 +152,10 @@ _subscribeToData("selectedCat") ->     subscriber | this._data.selectedCat | sub
 
 ```
 
-Observer and broadcast data changes
+Observe and broadcast data changes
 ```
 cat-service                                                  cat-list
-_handleObserverDataChanges() -> broadcastDataChanges() ->    handleNotification() -> this._dynamicPartial.view.render() / update dynamic view
+_handleObservingDataChanges() -> broadcastDataChanges() ->    handleNotification() -> this._dynamicPartial.view.render() / update dynamic view
 
                                                              cat-detail-panel
                                                        ->    handleNotification() -> update static view dom element values

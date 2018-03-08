@@ -30,7 +30,7 @@ class CatService extends DataService {
         });
     }
 
-    _handleObserverDataChanges(changes, keyPath) {
+    _handleObservingDataChanges(changes, keyPath) {
 
         if(Object.is(keyPath, "cats")){
             this._syncSelectedCat(changes);
