@@ -1,0 +1,14 @@
+<p>Cat list counter</p>
+
+<div class="b-component--tighter" each="cat in vm.proxy">
+
+    <div class="grid">
+        <div class="1/2 grid__cell">
+            <a href="javascript:void(0);" class="b-link--block b-link--no-underline"
+               onclick="{vm.handlers.clickCat(cat)}"
+               title="show cat details" >
+                <span>NAME: {cat.name} COUNTS: {cat.counter}</span>
+            </a>
+        </div>
+    </div>
+</div>
