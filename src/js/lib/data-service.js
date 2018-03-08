@@ -4,38 +4,44 @@ import _ from 'lodash';
 import ObservableSlim from 'observable-slim';
 
 /**
- * DataService is used to handle shared data and methods between components
- * It observers shared data changes and notify changes to other components
+ * DataService handles shared data and methods between components
+ * It observes shared data changes and notify changes to other components
  */
 export default class DataService {
 
     constructor() {
 
-        /**
-         *
-         * @type {function(this:DataService)}
-         * @private
-         */
-        this._handleObserverDataChanges = this._handleObserverDataChanges.bind(this);
+        this._handleObservingDataChanges = this._handleObservingDataChanges.bind(this);
 
         /**
-         *
+         * Shared data
          * @type {Object}
+         * @example
+         *      {
+         *          cats: []
+         *          selectedCat: {}
+         *      }
          * @private
          */
         this._data = {};
 
         /**
-         * Observers
+         * The collection of this._data objects' proxies
          * @type {Set}
          * @private
+         * @example
+         *      this._observers.get("cats") returns the proxy of this._data.cats
+         *      this._observers.get("selectedCat") returns the proxy of this._data.selectedCat
          */
         this._observers = new Map();
 
         /**
-         * Subscribers
+         * The collection of subscribers, each of subscribers subscribe to an observer
          * @type {Array}
          * @private
+         * @example
+         *      componentA.cats -> _observers["cats"]
+         *      componentB.cats -> _observers["cats"]
          */
         this._subscribers = new Set();
     }
@@ -44,7 +50,7 @@ export default class DataService {
 
     /*---------------------------- public functions -------------------------*/
     /**
-     * Subscribe changes
+     * Create a subscriber  changes
      * @param keyPath
      * @param handler
      * @param instance
@@ -63,7 +69,7 @@ export default class DataService {
             id: Helpers.Strings.random(6),
             keyPath: keyPath,
             handler: handler,
-            proxy: this._createObservableProxy(keyPath)
+            proxy: this._getObserver(keyPath)
         };
         this._subscribers.add(subscriber);
         return subscriber;
@@ -85,7 +91,7 @@ export default class DataService {
     }
 
     /**
-     * Notify all subscribers data object changes
+     * Notify all subscribed data object changes
      * Use it after loading the data from the server.
      * @param {String} keyPath - key path of the this._data
      * @param {Object} excluded - subscriber, excluded subscriber
@@ -99,7 +105,7 @@ export default class DataService {
      *
      * ```
      *
-     * An example `/src/components/style-guide/style-guide-service.js`
+     * An example `/src/components/_cat-clicker/cat-service.js`
      *
      * @private
      */
@@ -130,13 +136,13 @@ export default class DataService {
 
     /*-------------------------- private functions -------------------------*/
     /**
-     * Create subscriber proxy
+     * Create observable proxy for a target object
      * @param keyPath {String}
      * @param handler
      * @returns {*}
      * @private
      */
-    _createObservableProxy(keyPath , handler=this._handleObserverDataChanges) {
+    _getObserver(keyPath , handler=this._handleObservingDataChanges) {
         if(!this._observers.has(keyPath)) {
             this._observers.set(keyPath, ObservableSlim.create(
                 this._data[keyPath], true, (changes)=> {
@@ -154,7 +160,7 @@ export default class DataService {
      * @private
      * @override
      */
-    _handleObserverDataChanges(changes, keyPath) {
+    _handleObservingDataChanges(changes, keyPath) {
         this.broadcastDataChanges(keyPath);
         return true;
     }
