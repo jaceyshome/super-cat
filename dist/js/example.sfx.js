@@ -345,20 +345,20 @@ $__System.register("components/_cat-clicker/cat-list/cat-list-tpl.js", ["npm:inc
       hoisted18,
       __target;
   function catListTplFn(vm) {
-    elementOpen("div", "5d63f97c-f6df-401b-9748-477198370cdd", hoisted1);
+    elementOpen("div", "ee45746b-3958-4cb8-9121-4aeef4694af1", hoisted1);
     elementOpen("h3");
     text("Cat list component");
     elementClose("h3");
-    elementOpen("div", "963e11eb-e4db-4c8d-9a84-5e4280c206a2", hoisted2);
-    elementOpen("div", "5e038fc3-b10e-4bc9-9069-8765ac9d15b3", hoisted3);
+    elementOpen("div", "fbf8bd5c-c103-4c2f-973d-0a47bd15f46f", hoisted2);
+    elementOpen("div", "67b6294a-a891-48ae-9c3d-0e189e39902a", hoisted3);
     elementOpen("p");
     text("" + (vm.proxy.description) + "");
     elementClose("p");
     elementClose("div");
     elementClose("div");
-    elementOpen("div", "19e06a47-acdb-4a29-bfc0-8fe5bb76e95d", hoisted4);
-    elementOpen("div", "9802aa46-c774-407a-b21f-21c38e000f08", hoisted5);
-    elementOpen("a", "61372640-47de-43ce-87e5-20d32569228e", hoisted6, "onclick", function($event) {
+    elementOpen("div", "9f3e517f-79e1-4fdd-be64-260eb2468f96", hoisted4);
+    elementOpen("div", "3c0f22aa-e247-4cae-a5e8-f24e8c470ea6", hoisted5);
+    elementOpen("a", "87949559-9b04-4a32-b674-16f4a17087e5", hoisted6, "onclick", function($event) {
       var $element = this;
       vm.handlers.addCat();
     });
@@ -371,11 +371,11 @@ $__System.register("components/_cat-clicker/cat-list/cat-list-tpl.js", ["npm:inc
       ;
       (__target.forEach ? __target : Object.keys(__target)).forEach(function($value, $item, $target) {
         var cat = $value;
-        var $key = "96ca3e83-08c2-4dda-bbe2-a312520ab7b5_" + $item;
+        var $key = "a1379b6d-3024-4c3a-9ca7-f3366dbb77bc_" + $item;
         elementOpen("div", $key, hoisted7);
-        elementOpen("div", "1822a389-4bfd-4ff3-b72a-8e9068298ccf_" + $key, hoisted8);
-        elementOpen("div", "5171a616-6ccc-4343-a2a8-fe76d4a07d8f_" + $key, hoisted9);
-        elementOpen("a", "14b7e48c-ac00-4ba0-b4fc-fc532d79ded8_" + $key, hoisted10, "onclick", function($event) {
+        elementOpen("div", "7ac16113-788c-4eca-88b9-9b5b8369cd4e_" + $key, hoisted8);
+        elementOpen("div", "e9783f3b-26ab-4e03-94f5-e01f07675f26_" + $key, hoisted9);
+        elementOpen("a", "007a4098-adb5-4e51-b271-af4e1676b815_" + $key, hoisted10, "onclick", function($event) {
           var $element = this;
           vm.handlers.clickCat(cat);
         });
@@ -387,16 +387,16 @@ $__System.register("components/_cat-clicker/cat-list/cat-list-tpl.js", ["npm:inc
         }
         elementClose("a");
         elementClose("div");
-        elementOpen("div", "292c0c5d-142a-4b0e-baba-b51d28e96a08_" + $key, hoisted11);
-        elementOpen("a", "ac5cb2ef-7fcf-49cb-8cd9-e0a21b719cb7_" + $key, hoisted12, "onclick", function($event) {
+        elementOpen("div", "8d7e1cb3-c073-4695-9966-d0b4f9edc4d9_" + $key, hoisted11);
+        elementOpen("a", "495a7b9d-3ca4-4436-8564-835bd280d1fc_" + $key, hoisted12, "onclick", function($event) {
           var $element = this;
           vm.handlers.selectCat(cat);
         });
         text("select");
         elementClose("a");
         elementClose("div");
-        elementOpen("div", "a7c1324e-c9ca-4da9-88f4-7292fe136695_" + $key, hoisted13);
-        elementOpen("a", "78ac1c02-a6dd-46ef-aeaa-8f78fd15a2e5_" + $key, hoisted14, "onclick", function($event) {
+        elementOpen("div", "8396c6fb-d1f4-49a2-9e06-fb5839a7588b_" + $key, hoisted13);
+        elementOpen("a", "75eaab4f-6e6f-487c-813d-01d9aab035ab_" + $key, hoisted14, "onclick", function($event) {
           var $element = this;
           vm.handlers.deleteCat(cat);
         });
@@ -408,22 +408,22 @@ $__System.register("components/_cat-clicker/cat-list/cat-list-tpl.js", ["npm:inc
       }, this);
     }
     elementClose("div");
-    elementOpen("div", "aee83fc8-d99e-4334-8f06-94f493723f70", hoisted15);
+    elementOpen("div", "b42d6f61-11b4-4dbd-a6f2-853936a0fea8", hoisted15);
     elementOpen("h3");
     text("Cat description panel component");
     elementClose("h3");
     elementOpen("p");
     text("I have a ");
-    elementOpen("b", "1d263b47-4b76-4b90-8411-fbc8d4bbc096", hoisted16);
+    elementOpen("b", "ef2a4357-f493-4afd-9b5b-58499e4dc5d9", hoisted16);
     text("" + (vm.proxy.selectedCat.name) + "");
     elementClose("b");
     text(" and I have visited he/she ");
-    elementOpen("b", "8824afcb-51ad-4764-9c5a-7cf46d4f7666", hoisted17);
+    elementOpen("b", "18c8e496-b3fb-48c9-817d-ebe844b1d992", hoisted17);
     text("" + (vm.proxy.selectedCat.counter) + "");
     elementClose("b");
     text(" times. ");
     elementClose("p");
-    elementOpen("a", "0b28ed5c-2fd4-4ba0-9c80-1bb5ed28cf8f", hoisted18);
+    elementOpen("a", "d3392a5f-477e-416d-9774-11ee31aff372", hoisted18);
     text("like");
     elementClose("a");
     elementClose("div");
@@ -552,6 +552,7 @@ $__System.register('components/_cat-clicker/cat-list/cat-list.js', ['lib/feature
                 _createClass(CatList, [{
                     key: 'handleNotification',
                     value: function handleNotification(keyPath, data) {
+                        this._childElements.$loading.html('');
                         this._dynamicPartial.view.render();
                     }
                 }, {
@@ -6192,7 +6193,7 @@ $__System.register('lib/data-service.js', ['helpers/helpers.js', 'lib/http.js', 
                 function DataService() {
                     _classCallCheck(this, DataService);
 
-                    this._handleObserverDataChanges = this._handleObserverDataChanges.bind(this);
+                    this._handleObservingDataChanges = this._handleObservingDataChanges.bind(this);
 
                     this._data = {};
 
@@ -6216,7 +6217,7 @@ $__System.register('lib/data-service.js', ['helpers/helpers.js', 'lib/http.js', 
                             id: Helpers.Strings.random(6),
                             keyPath: keyPath,
                             handler: handler,
-                            proxy: this._createObservableProxy(keyPath)
+                            proxy: this._getObserver(keyPath)
                         };
                         this._subscribers.add(subscriber);
                         return subscriber;
@@ -6277,9 +6278,9 @@ $__System.register('lib/data-service.js', ['helpers/helpers.js', 'lib/http.js', 
                         }
                     }
                 }, {
-                    key: '_createObservableProxy',
-                    value: function _createObservableProxy(keyPath) {
-                        var handler = arguments.length <= 1 || arguments[1] === undefined ? this._handleObserverDataChanges : arguments[1];
+                    key: '_getObserver',
+                    value: function _getObserver(keyPath) {
+                        var handler = arguments.length <= 1 || arguments[1] === undefined ? this._handleObservingDataChanges : arguments[1];
 
                         if (!this._observers.has(keyPath)) {
                             this._observers.set(keyPath, ObservableSlim.create(this._data[keyPath], true, function (changes) {
@@ -6289,8 +6290,8 @@ $__System.register('lib/data-service.js', ['helpers/helpers.js', 'lib/http.js', 
                         return this._observers.get(keyPath);
                     }
                 }, {
-                    key: '_handleObserverDataChanges',
-                    value: function _handleObserverDataChanges(changes, keyPath) {
+                    key: '_handleObservingDataChanges',
+                    value: function _handleObservingDataChanges(changes, keyPath) {
                         this.broadcastDataChanges(keyPath);
                         return true;
                     }
@@ -6393,8 +6394,8 @@ $__System.register('components/_cat-clicker/cat-service.js', ['helpers/helpers.j
                         });
                     }
                 }, {
-                    key: '_handleObserverDataChanges',
-                    value: function _handleObserverDataChanges(changes, keyPath) {
+                    key: '_handleObservingDataChanges',
+                    value: function _handleObservingDataChanges(changes, keyPath) {
 
                         if (Object.is(keyPath, "cats")) {
                             this._syncSelectedCat(changes);
@@ -19832,11 +19833,11 @@ $__System.register("components/_cat-clicker/cat-list-counter/cat-list-counter-tp
       ;
       (__target.forEach ? __target : Object.keys(__target)).forEach(function($value, $item, $target) {
         var cat = $value;
-        var $key = "65b106bd-28f5-404a-8e96-6c74e2b71af2_" + $item;
+        var $key = "16b4be09-a771-4a16-938a-e507f229afe5_" + $item;
         elementOpen("div", $key, hoisted1);
-        elementOpen("div", "d4b7dae4-8ed9-4272-9272-923f4cf0fd49_" + $key, hoisted2);
-        elementOpen("div", "a18e48d0-1960-4211-abb2-ffc1bcfa96d9_" + $key, hoisted3);
-        elementOpen("a", "842fc674-7786-43ae-8270-0e2b4f845aa5_" + $key, hoisted4, "onclick", function($event) {
+        elementOpen("div", "39e95b2a-8e7c-42cd-9daa-6ebf617ab906_" + $key, hoisted2);
+        elementOpen("div", "53f4c932-a8c1-4e19-9683-8d590bbfe0c2_" + $key, hoisted3);
+        elementOpen("a", "eff08e48-9e41-4918-ba34-e766088db2e0_" + $key, hoisted4, "onclick", function($event) {
           var $element = this;
           vm.handlers.clickCat(cat);
         });

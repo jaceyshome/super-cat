@@ -15,11 +15,11 @@ __target = vm.proxy
 if (__target) {
   ;(__target.forEach ? __target : Object.keys(__target)).forEach(function($value, $item, $target) {
     var cat = $value
-    var $key = "65b106bd-28f5-404a-8e96-6c74e2b71af2_" + $item
+    var $key = "16b4be09-a771-4a16-938a-e507f229afe5_" + $item
     elementOpen("div", $key, hoisted1)
-      elementOpen("div", "d4b7dae4-8ed9-4272-9272-923f4cf0fd49_" + $key, hoisted2)
-        elementOpen("div", "a18e48d0-1960-4211-abb2-ffc1bcfa96d9_" + $key, hoisted3)
-          elementOpen("a", "842fc674-7786-43ae-8270-0e2b4f845aa5_" + $key, hoisted4, "onclick", function ($event) {
+      elementOpen("div", "39e95b2a-8e7c-42cd-9daa-6ebf617ab906_" + $key, hoisted2)
+        elementOpen("div", "53f4c932-a8c1-4e19-9683-8d590bbfe0c2_" + $key, hoisted3)
+          elementOpen("a", "eff08e48-9e41-4918-ba34-e766088db2e0_" + $key, hoisted4, "onclick", function ($event) {
             var $element = this;
           vm.handlers.clickCat(cat)})
             elementOpen("span")

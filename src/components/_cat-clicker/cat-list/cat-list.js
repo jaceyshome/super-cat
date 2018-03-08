@@ -51,6 +51,7 @@ export class CatList extends FeaturedComponent {
 
     /*--------------------- data service notification handlers --------------------------*/
     handleNotification(keyPath, data) {
+        this._childElements.$loading.html('');
         this._dynamicPartial.view.render();
     }
 
