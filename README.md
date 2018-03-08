@@ -43,7 +43,7 @@ config github registry
 ```
 jspm registry config github
 ```
-
+connect bitbucket
 ```
 $ jspm config registries.bitbucket.baseurl ssh://git@bitbucket.org
 $ jspm config registries.bitbucket.handler jspm-git
