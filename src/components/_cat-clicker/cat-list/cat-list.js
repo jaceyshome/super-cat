@@ -71,7 +71,7 @@ export class CatList extends FeaturedComponent {
         cat.counter += 1;
     }
 
-    editCat(cat) {
+    selectCat(cat) {
         Object.assign(this._proxy.selectedCat, cat);
     }
 

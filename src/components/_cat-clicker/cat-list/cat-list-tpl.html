@@ -1,47 +1,55 @@
-<div class="b-component" >
 
-    <div class="grid">
-        <div class="2/3 grid__cell">
-            <p>{vm.proxy.description}</p>
-        </div>
-        <div class="1/3 grid__cell">
-            <a href="javascript:void(0);" class="btn btn-primary"
-               title="add a cat" onclick="{vm.handlers.addCat()}" >create</a>
-        </div>
-    </div>
 
-    <div class="b-component--tighter" each="cat in vm.proxy.cats">
+    <div style="background-color: rgba(255,243,205,0.39); margin-bottom: 20px; padding: 20px;" >
+        <h3>Cat list component</h3>
 
         <div class="grid">
-            <div class="1/2 grid__cell">
-                <a href="javascript:void(0);" class="b-link--block b-link--no-underline"
-                   onclick="{vm.handlers.clickCat(cat)}"
-                   title="show cat details" >
-                    <span>{cat.name} counts: {cat.counter}</span>
-                    <if condition="vm.proxy.selectedCat.name == cat.name">
-                        (Selected)
-                    </if>
-                </a>
+            <div class="2/3 grid__cell">
+                <p>{vm.proxy.description}</p>
             </div>
-            <div class="1/4 grid__cell">
-                <a href="javascript:void(0);" class="btn btn-primary"
-                   title="edit cat" onclick="{vm.handlers.editCat(cat)}">edit</a>
+        </div>
+
+        <div class="grid">
+            <div class="2/3 grid__cell">
+                <a href="javascript:void(0);" class="btn btn-primary" style="padding: 2px 5px; margin-bottom: 10px;"
+                   title="add a cat" onclick="{vm.handlers.addCat()}" >create</a>
             </div>
-            <div class="1/4 grid__cell">
-                <a href="javascript:void(0);" class="btn btn-primary"
-                   title="delete cat" onclick="{vm.handlers.deleteCat(cat)}" >delete</a>
+        </div>
+
+        <div each="cat in vm.proxy.cats" style="margin-bottom: 5px;">
+
+            <div class="grid">
+                <div class="1/2 grid__cell">
+                    <a href="javascript:void(0);" class="b-link--block b-link--no-underline"
+                       onclick="{vm.handlers.clickCat(cat)}"
+                       title="show cat details" >
+                        <span>{cat.name} counts: {cat.counter}</span>
+                        <if condition="vm.proxy.selectedCat.name == cat.name">
+                            (Selected)
+                        </if>
+                    </a>
+                </div>
+                <div class="1/4 grid__cell">
+                    <a href="javascript:void(0);" class="btn btn-primary" style="padding: 2px 5px;"
+                       title="edit cat" onclick="{vm.handlers.selectCat(cat)}">select</a>
+                </div>
+                <div class="1/4 grid__cell">
+                    <a href="javascript:void(0);" class="btn btn-primary" style="padding: 2px 5px;"
+                       title="delete cat" onclick="{vm.handlers.deleteCat(cat)}" >delete</a>
+                </div>
             </div>
+
         </div>
 
     </div>
 
-    <div class="b-js-cat-description-panel b-component" >
+    <div class="b-js-cat-description-panel b-component" style="background-color: rgba(173,184,230,0.49); padding: 10px;">
+        <h3>Cat description panel component</h3>
 
         <p>I have a <b data-js-el="name">{vm.proxy.selectedCat.name}</b> and I have visited he/she <b data-js-el="counter">{vm.proxy.selectedCat.counter}</b> times. </p>
 
-        <a href="javascript:void(0);" class="b-button b-button--primary"
+        <a href="javascript:void(0);" class="btn btn-primary"
            title="like cat" data-js-el="button-like">like</a>
 
     </div>
 
-</div>
