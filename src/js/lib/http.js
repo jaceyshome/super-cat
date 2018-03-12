@@ -2,6 +2,9 @@ import $ from 'jquery';
 import _ from 'lodash';
 import Promise from 'bluebird';
 
+/**
+ * Restful API helper
+ */
 class Http {
 
     /**

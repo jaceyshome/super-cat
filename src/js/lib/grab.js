@@ -1,6 +1,7 @@
 import $ from 'jquery';
 
 /**
+ * University of Sydney DOM element helper
  * Reference： https://bitbucket.org/sydneyuni/garfield
  * Helps you "grab" DOM element targets relative to a scope Element. Think of it as a semi-scoped instance of $ with extra sugar.
  * The target can be specified in four ways:

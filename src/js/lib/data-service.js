@@ -4,8 +4,8 @@ import _ from 'lodash';
 import ObservableSlim from 'observable-slim';
 
 /**
- * DataService handles shared data and methods between components
- * It observes shared data changes and notify changes to other components
+ * The data service follows the observer pattern, it observers and broadcasts data changes between
+ * different components with data-driven processing.
  */
 export default class DataService {
 

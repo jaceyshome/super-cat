@@ -1,5 +1,5 @@
 /**
-* Garfield loader
+* University of Sydney Garfield loader
 * Reference： https://bitbucket.org/sydneyuni/garfield
 **/
 (function() {

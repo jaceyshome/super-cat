@@ -1,27 +1,22 @@
 #Super cat
 
-This project explores ES6 future features including using proxy to observe and control components shared data and states
-and uses Google [Incremental DOM](https://github.com/google/incremental-dom) to handle dynamic view 
-in the static web page.
+An ECMAScript 6(ES6) features project.
 
 ## Requirements
 
 * [Node.js/NPM](http://nodejs.org/) (v6.9.5)
 
-## Overview
-The framework is written in ES6 and uses SystemJs for dependencies management, Gulp for pre-compiling ES6 script into ES5 script 
-and the html view templates into incremental dom view functions.
 
-The framework introduces a data service with the observer pattern to handle communication between components and other modules. 
-More information about the component examples and the data service is provided below.
+## Overview
+The framework uses SystemJs for dependencies management ,[Incremental DOM](https://github.com/google/incremental-dom) as 
+the view engine for dynamic html templates and Gulp for build tasks including pre-compiling ES6 scripts and dynamic view
+templates. The framework is for the traditional multi-page application, it aims to reduce writing boilerplate code for 
+interactions between DOM elements and components. More information is provided below.
 
 
 ## Setup
-To get started on this project, you will need to install a list of the libraries:
-
-**Install Node version manager (NVM)**
-Recommend to use node version manager [NVM](https://github.com/creationix/nvm/blob/master/README.md), it is easier to
-switch different versions of nodeJs for different projects. After the installation, to use node 6.9.x 
+To get started on this project, you can use the node version manager [NVM](https://github.com/creationix/nvm/blob/master/README.md) 
+to switch different versions of nodeJs in your local development environment. Install Node.js v6.9.5 after the installation with  
 ```
 nvm install 6.9.5
 ```
@@ -29,17 +24,15 @@ Then run
 ```
 node -v 
 ```
-to check whether the node version is 6.9.x
+to check whether the node version is 6.9.5.
 
-### Global nodejs packages ###
-Once you have Node.js installed you'll need to install node modules [JSPM](http://jspm.io/), [Gulp](http://gulpjs.com/). 
-We recommend a global install since these tools are not project-specific:
+It recommends a global installation for [JSPM](http://jspm.io/) and [Gulp](http://gulpjs.com/):
 
 ```
 $ [sudo] npm install -g jspm jspm-git gulp jspm-github
 ```
 
-config github registry
+Config github registry
 ```
 jspm registry config github
 ```
@@ -58,21 +51,24 @@ $ npm install
 $ jspm install
 ```
 
-
-## Component examples
-Base example:
+## Development 
+To start a local live reload server with gulp watch task
+```
+gulp watch
+```
+Then open one of the page below in your browser
+ 
+http://localhost:9000/demo/examples/cat-clicker.html
 http://localhost:9000/demo/examples/cat-list-counter.html
 
-With data service:
-http://localhost:9000/demo/examples/cat-clicker.html
 
-Component examples
+## Component development
 ```
 src/components/_cat-clicker
-src/components/audio-player
 ```
 
-## Component Folder structure ##
+A typical component package
+
 ```
 a-component.js          controller
 a-component-tpl.html    SuperviewJs view template
@@ -81,7 +77,7 @@ a-component.scss        scss file
 demo.a-component.html   component demo html
 ```
 
-## Flows ##
+## Flow 
 ### Static view ###
 
 ```
@@ -91,20 +87,20 @@ Example
 ```src/components/_cat-clicker/cat-list-counter/cat-list-counter.js```
 
 
-
 ### Dynamic view ###
 ```
 controller -> View model -> view
 ```
 
-Example
+Examples
+
 ```
 src/components/_cat-clicker/cat-list
 src/components/_cat-clicker/cat-detail-panel
 src/components/_cat-clicker/cat-description-panel
 ```
 
-A component controller has different views or view models
+A component controller can have different views or view models
 ```
 controller 1 -> view model 1 -> view 1
                              -> view 2
@@ -118,109 +114,112 @@ controller 2 -> view model 2 -> view 1
 
 
 ## Data service ##
-The data service is developed based on the observer pattern. It takes the responsibility to handle communication 
-between components by the shared data, component state changes or synchronise data with other modules including the 
-server and the local data etc. The purpose is to make the data flow clear between each of components in a group.
+
+Source: ```src/js/lib/data-service.js```
+
+Example: ```src/components/_cat-clicker/cat-service.js```
+
+The data service follows the observer pattern, it observers and broadcasts data changes between 
+different components with data-driven processing. Recommend to use it as a central control to manage interactions or 
+state changes for a group of components, or synchronise data with other modules such as the server side module and the 
+local storage and so on. As the chart shown below, it provides a clear data flow among a group of components and modules. 
 
 ![](./doc/assets/data-flow-with-data-service.png)
 
 
-Source: ```src/js/lib/data-service.js```
 
-An example: ```src/components/_cat-clicker/cat-service.js```
+### Example ###
 
-
-
-### Flow ###
-
-Subscribe to object
+Each of components in a group subscribes to an object and gets the (ES6) proxy of the object:  
 ```
-cat-list | this._data.selectedCat                       cat-service                            cat-detail-panel | this._data.selectedCat
-_subscribeToData("selectedCat") ->     subscriber | this._data.selectedCat | subscriber     <- _subscriberToData("selectedCat")
-
+cat-list | this._data.selectedCat                       cat-service                             cat-detail-panel | this._data.selectedCat
+                                ->     subscriber |                         | subscriber    <-  
+_subscribeToData("selectedCat")                   | this._data.selectedCat  |                   _subscriberToData("selectedCat")
+                                <-         proxy  |                         | proxy         ->
 ```
 
-Observe and broadcast data changes
-```
-cat-service                                                  cat-list
-_handleObservingDataChanges() -> broadcastDataChanges() ->    handleNotification() -> this._dynamicPartial.view.render() / update dynamic view
-
-                                                             cat-detail-panel
-                                                       ->    handleNotification() -> update static view dom element values
+The object proxy observes changes, the service broadcasts the object changes to its subscribers, each of components 
+gets a notification and update its view:
 ```
 
-Use data service if you face one of these situations:
 
-Shared functions or data between components
+cat-service                                                      cat-list
+_handleObservingDataChanges() -> broadcastDataChanges("cats") -> handleNotification() -> this._dynamicPartial.view.render() / update dynamic view
 
-**Example**
-```
-international student   ->
-                            student-data-service (addStudent(), deleteStudent())
-domestic student        ->
+                                                                 cat-detail-panel
+                                                              -> handleNotification() -> update static view dom element values
 ```
 
-Components fetch or send data from the same data source (local storage, server API)
+### Usages ###
 
-**Example**
+**Shared functions or data between components**
+
 ```
-international student -> 
-                         student-service                ->  server API/local storage
-                         (post, update, get, delete)
-domestic student      ->
+international student   <->
+                            student-data-service (addStudent(), deleteStudent()) <-> [ helpers/data-services ]
+domestic student        <->
 ```
 
-Nested components
+**Data synchronisation between the local storage or the server side API**
 
-**Example**
+```
+international student <-> 
+                         student-service                <->  server side API/local storage
+                         (validate, filter, sort, find)
+domestic student      <->
+```
+
+
+**Interactions with nested components**
+
 ```
 current student
     - international student   
     - domestic student       
 
-current student ->  student-service             <- international student
-                   (list, add, find, delete)    <- domestic student
+current student <->  student-service             <-> international student
+                   (list, add, find, delete)     <-> domestic student
 
 ```
 
-Components states have dependencies with each other
-
-**Example**
-```
-current student ->  student-service                             <- international student
-                   (setSelectedStudent, setAvaiableStudents)    <- domestic student
+**Component dependencies management**
 
 ```
+login teacher   ->  student-service                                                 -> international student
+                    (setTheListOfSelectedStudents, setTheListOfAvaiableStudents)    -> domestic student
 
-Service talk to service
-
-**Example**
 ```
-international student   ->                                     
-                            student-sevice <-> teacher-service <- teacher 
-domestic student        ->
+
+**Group data services**
+
+```
+international student   <->                                     
+                            student-sevice <-> teacher-service <-> teacher 
+domestic student        <->
 ```
 OR
 
 ```
-international student   ->                                     
-                            student-sevice <- student-teacher-service -> teacher-service <- teacher 
-domestic student        ->
+international student   <->                                     
+                            student-sevice <-> student-teacher-service <-> teacher-service <-> teacher 
+domestic student        <->
 
 ```
 
+**Unit test for the complex business logic**
+Comparing to the end to end test, it is easier to write the unit test for a data service as it doesn't require DOM interactions. 
+For example, using Mocha writes a BDD test for the student service or teacher service. 
 
-## SuperviewJs and Incremental DOM ##
+
+## Dynamic view ##
 The framework uses [Incremental DOM](https://github.com/google/incremental-dom) for the dynamic view. 
-[SuperviewJs](https://github.com/davidjamesstone/superviews.js/) is a 
-template engine to convert a html template into an incremental-dom render function. 
+[SuperviewJs](https://github.com/davidjamesstone/superviews.js/) is a template engine to convert a 
+html template into an incremental-dom render function. The 
 
 The SuperviewJs playground
 http://davidjamesstone.github.io/superviews.js/playground/index.html
 
-Hide the implement details from the view with handlers and keep the view clean and easy to read
-
-**Example**
+###Example###
 
 View
 
@@ -244,7 +243,7 @@ getStudentState(student) {
 }
 ```
 
-The benefit is the view can be used with different handlers from the same or different controllers
+The benefit is the same view can be used with different handlers from the same or different controllers:
 
 ```javascript
 getStudentState(student) {
@@ -252,15 +251,5 @@ getStudentState(student) {
 }    
 ```
 
-## Component examples
-Base example:
-http://localhost:9000/demo/examples/cat-list-counter.html
-
-With data service:
-http://localhost:9000/demo/examples/cat-clicker.html
-
-Sources
-```
-src/components/_cat-clicker
-src/components/audio-player
-```
+## TODO
+BDD test script for data service examples

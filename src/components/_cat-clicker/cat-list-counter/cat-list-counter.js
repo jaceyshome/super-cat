@@ -22,6 +22,10 @@ export class CatListCounter extends FeaturedComponent {
     constructor(el, options) {
         super(el, options);
 
+        /**
+         * The cat list
+         * @private
+         */
         this._data = [
             {name: "cat 1", counter: 1},
             {name: "cat 2", counter: 2},
@@ -43,6 +47,10 @@ export class CatListCounter extends FeaturedComponent {
 
 
     /*---------------------------- view handlers ----------------------------*/
+    /**
+     * Handle click cat button
+     * @param {Object} cat
+     */
     clickCat(cat) {
         cat.counter += 1;
     }
