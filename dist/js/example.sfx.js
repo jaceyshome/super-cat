@@ -345,20 +345,20 @@ $__System.register("components/_cat-clicker/cat-list/cat-list-tpl.js", ["npm:inc
       hoisted18,
       __target;
   function catListTplFn(vm) {
-    elementOpen("div", "ee45746b-3958-4cb8-9121-4aeef4694af1", hoisted1);
+    elementOpen("div", "25fdd2c8-5e05-463a-bc96-32749f3c8a4f", hoisted1);
     elementOpen("h3");
     text("Cat list component");
     elementClose("h3");
-    elementOpen("div", "fbf8bd5c-c103-4c2f-973d-0a47bd15f46f", hoisted2);
-    elementOpen("div", "67b6294a-a891-48ae-9c3d-0e189e39902a", hoisted3);
+    elementOpen("div", "65da92fe-cc01-4000-a551-1e4c3cc7dbbc", hoisted2);
+    elementOpen("div", "729848a3-aa92-42fc-b306-417eb082af1c", hoisted3);
     elementOpen("p");
     text("" + (vm.proxy.description) + "");
     elementClose("p");
     elementClose("div");
     elementClose("div");
-    elementOpen("div", "9f3e517f-79e1-4fdd-be64-260eb2468f96", hoisted4);
-    elementOpen("div", "3c0f22aa-e247-4cae-a5e8-f24e8c470ea6", hoisted5);
-    elementOpen("a", "87949559-9b04-4a32-b674-16f4a17087e5", hoisted6, "onclick", function($event) {
+    elementOpen("div", "4d7dbea5-b3be-4270-88d2-ba5e14457613", hoisted4);
+    elementOpen("div", "549bf84c-ef0d-430e-a219-401f75a5f242", hoisted5);
+    elementOpen("a", "432c523c-4dc3-44f1-8e03-722fc856f988", hoisted6, "onclick", function($event) {
       var $element = this;
       vm.handlers.addCat();
     });
@@ -371,11 +371,11 @@ $__System.register("components/_cat-clicker/cat-list/cat-list-tpl.js", ["npm:inc
       ;
       (__target.forEach ? __target : Object.keys(__target)).forEach(function($value, $item, $target) {
         var cat = $value;
-        var $key = "a1379b6d-3024-4c3a-9ca7-f3366dbb77bc_" + $item;
+        var $key = "352ab5ac-a4bd-4182-b819-e8e4680f3a46_" + $item;
         elementOpen("div", $key, hoisted7);
-        elementOpen("div", "7ac16113-788c-4eca-88b9-9b5b8369cd4e_" + $key, hoisted8);
-        elementOpen("div", "e9783f3b-26ab-4e03-94f5-e01f07675f26_" + $key, hoisted9);
-        elementOpen("a", "007a4098-adb5-4e51-b271-af4e1676b815_" + $key, hoisted10, "onclick", function($event) {
+        elementOpen("div", "7470d983-62f1-464f-8a2a-0c538280add2_" + $key, hoisted8);
+        elementOpen("div", "e31cfa2d-a17a-400d-a8c9-b4512cde364b_" + $key, hoisted9);
+        elementOpen("a", "aa1441b0-427b-43a4-84ec-e60712df99b8_" + $key, hoisted10, "onclick", function($event) {
           var $element = this;
           vm.handlers.clickCat(cat);
         });
@@ -387,16 +387,16 @@ $__System.register("components/_cat-clicker/cat-list/cat-list-tpl.js", ["npm:inc
         }
         elementClose("a");
         elementClose("div");
-        elementOpen("div", "8d7e1cb3-c073-4695-9966-d0b4f9edc4d9_" + $key, hoisted11);
-        elementOpen("a", "495a7b9d-3ca4-4436-8564-835bd280d1fc_" + $key, hoisted12, "onclick", function($event) {
+        elementOpen("div", "0f2b6bbe-ac33-4a37-b538-7503f3f242a7_" + $key, hoisted11);
+        elementOpen("a", "1613b0b9-6b13-4983-8d37-d500e0be4f00_" + $key, hoisted12, "onclick", function($event) {
           var $element = this;
           vm.handlers.selectCat(cat);
         });
         text("select");
         elementClose("a");
         elementClose("div");
-        elementOpen("div", "8396c6fb-d1f4-49a2-9e06-fb5839a7588b_" + $key, hoisted13);
-        elementOpen("a", "75eaab4f-6e6f-487c-813d-01d9aab035ab_" + $key, hoisted14, "onclick", function($event) {
+        elementOpen("div", "6eab4f5c-3ccd-43be-9b24-c9566b707755_" + $key, hoisted13);
+        elementOpen("a", "62186afc-8d74-45e3-b76a-daaa18bfbf4b_" + $key, hoisted14, "onclick", function($event) {
           var $element = this;
           vm.handlers.deleteCat(cat);
         });
@@ -408,22 +408,22 @@ $__System.register("components/_cat-clicker/cat-list/cat-list-tpl.js", ["npm:inc
       }, this);
     }
     elementClose("div");
-    elementOpen("div", "b42d6f61-11b4-4dbd-a6f2-853936a0fea8", hoisted15);
+    elementOpen("div", "e4ea2c7c-3420-4d9b-b554-c4bee7d1ec5a", hoisted15);
     elementOpen("h3");
     text("Cat description panel component");
     elementClose("h3");
     elementOpen("p");
     text("I have a ");
-    elementOpen("b", "ef2a4357-f493-4afd-9b5b-58499e4dc5d9", hoisted16);
+    elementOpen("b", "d9f96866-de27-4cf3-bdf2-641d1dc33476", hoisted16);
     text("" + (vm.proxy.selectedCat.name) + "");
     elementClose("b");
     text(" and I have visited he/she ");
-    elementOpen("b", "18c8e496-b3fb-48c9-817d-ebe844b1d992", hoisted17);
+    elementOpen("b", "fb02949c-9925-4816-97db-e403304cba0c", hoisted17);
     text("" + (vm.proxy.selectedCat.counter) + "");
     elementClose("b");
     text(" times. ");
     elementClose("p");
-    elementOpen("a", "d3392a5f-477e-416d-9774-11ee31aff372", hoisted18);
+    elementOpen("a", "24bcfc90-391b-4c71-ae16-f7bdb091538b", hoisted18);
     text("like");
     elementClose("a");
     elementClose("div");
@@ -19833,11 +19833,11 @@ $__System.register("components/_cat-clicker/cat-list-counter/cat-list-counter-tp
       ;
       (__target.forEach ? __target : Object.keys(__target)).forEach(function($value, $item, $target) {
         var cat = $value;
-        var $key = "16b4be09-a771-4a16-938a-e507f229afe5_" + $item;
+        var $key = "9952384a-6706-4e90-932c-1197edd13271_" + $item;
         elementOpen("div", $key, hoisted1);
-        elementOpen("div", "39e95b2a-8e7c-42cd-9daa-6ebf617ab906_" + $key, hoisted2);
-        elementOpen("div", "53f4c932-a8c1-4e19-9683-8d590bbfe0c2_" + $key, hoisted3);
-        elementOpen("a", "eff08e48-9e41-4918-ba34-e766088db2e0_" + $key, hoisted4, "onclick", function($event) {
+        elementOpen("div", "b8818df9-dafa-4af4-a1d7-3a7a6b896ea8_" + $key, hoisted2);
+        elementOpen("div", "348b9a98-c062-44de-b49d-32b881ec1e67_" + $key, hoisted3);
+        elementOpen("a", "580f7949-f316-456c-a3df-c0ef5cd3d737_" + $key, hoisted4, "onclick", function($event) {
           var $element = this;
           vm.handlers.clickCat(cat);
         });
